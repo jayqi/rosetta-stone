@@ -1,5 +1,8 @@
 .PHONY: scripts tests
 
+export-env:
+	conda env export -n rosetta-stone --no-builds | grep -v "^prefix: " > environment.yml
+
 _data/titanic.csv:
 	wget -O _data/titanic.csv https://query.data.world/s/if4ykslee7vgdydwtf22xdazmfik6m
 	sed -i.bak '/,,,,,,,,,,,,,/d' _data/titanic.csv && rm _data/titanic.csv.bak
