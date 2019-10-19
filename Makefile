@@ -1,4 +1,4 @@
-.PHONY: scripts tests
+.PHONY: scripts test
 
 export-env:
 	conda env export -n rosetta-stone --no-builds | grep -v "^prefix: " > environment.yml
@@ -12,7 +12,7 @@ scripts:
 		jupyter nbconvert --to script $$nbfile --output-dir $$(dirname $$nbfile)/scripts; \
 	done
 
-tests:
+test:
 	for pyscript in */scripts/*.py; do \
 		echo "=== Testing $$pyscript ==="; \
 		(cd $$(dirname $$pyscript) && cd .. && python scripts/$$(basename $$pyscript)); \
