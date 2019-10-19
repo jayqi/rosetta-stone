@@ -13,3 +13,5 @@ for rscript in */scripts/*.r; do \
     (cd $(dirname $rscript) && cd .. && Rscript scripts/$(basename $rscript))
     echo ""
 done
+
+ECHO "Tests passed."

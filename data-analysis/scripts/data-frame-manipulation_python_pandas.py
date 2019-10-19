@@ -221,9 +221,67 @@ left_df.merge(
 
 # ## Rolling Join / As-of Join
 
-# ## Rowbind
+# https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.merge_asof.html
 
-# ## Columnbind
+# In[63]:
+
+
+left_df = pd.DataFrame({'t': [1, 5, 10], 'left_value': ['a', 'b', 'c']})
+left_df
+
+
+# In[64]:
+
+
+right_df = pd.DataFrame({'t': [1, 2, 3, 6, 7], 'right_value': [1, 2, 3, 6, 7]})
+right_df
+
+
+# In[58]:
+
+
+# Join in rows of right_df with latest value of t before
+pd.merge_asof(left_df, right_df, on='t', direction='backward')
+
+
+# In[59]:
+
+
+# Join in rows of right_df with next value of t after
+pd.merge_asof(left_df, right_df, on='t', direction='forward')
+
+
+# In[60]:
+
+
+# Join in rows of right_df with nearest value of t
+pd.merge_asof(left_df, right_df, on='t', direction='nearest')
+
+
+# ## Row-bind
+
+# In[45]:
+
+
+df1 = df.iloc[0:3]
+df2 = df.iloc[3:6]
+pd.concat([df1, df2])
+
+# note that this matches column names by default
+# controlled by `ignore_index` parameter
+
+
+# ## Column-bind
+
+# In[50]:
+
+
+df_left = df.iloc[0:3, 0:3]
+df_right = df.iloc[0:3, 3:6]
+pd.concat([df_left, df_right], axis=1, ignore_index=True)
+
+# note that default `ignore_index=False` will join on index
+
 
 # In[ ]:
 

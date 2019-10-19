@@ -8,12 +8,13 @@ A personal reference for common actions in different languages and frameworks.
 
 - [ ] Data analysis
     - [ ] Data frame creation
-        - [ ]
+        - [x] R data.table
+        - [x] Python pandas
     - [ ] Data frame manipulation
         - [ ] R data.frame
         - [ ] R tibble/dplyr
-        - [ ] R data.table
-        - [ ] Python pandas
+        - [x] R data.table
+        - [x] Python pandas
     - [ ] Plotting
         - [ ] R ggplot2
         - [ ] R plotly
@@ -27,7 +28,7 @@ A personal reference for common actions in different languages and frameworks.
     - [ ] Feature engineering
         - [ ] Python scikit-learn
     - [ ] Cross-validation
-    - [ ] Linear model
+    - [ ] Linear models
     - [ ] Random forest
     - [ ] Xgboost
     - [ ] Neural net

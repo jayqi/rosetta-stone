@@ -42,8 +42,6 @@ dt[, .(
     count = .N
 ), by = pclass]
 
-
-
 # Count Pivot Table
 data.table::dcast(dt, sex ~ pclass)
 
@@ -62,5 +60,33 @@ merge(
     by = 'name',   # by.x, by.y
     all = FALSE    # all.x, all.y
 ) %>% head()
+
+# Setup
+left_dt = data.table::data.table(t = c(1, 5, 10), left_value = c('a', 'b', 'c'))
+data.table::setkeyv(left_dt, "t")
+right_dt = data.table::data.table(t = c(1, 2, 3, 6, 7), right_value = c(1, 2, 3, 6, 7))
+data.table::setkeyv(right_dt, "t")
+
+# Join in rows of right_dt with latest value of t before
+right_dt[left_dt, roll = Inf]
+
+# Note bracket join syntax being backwards: select left_dt's rows, from right_dt
+# This is reverse join in R's convention, but a forward join in Python's.
+
+# Join in rows of right_dt with next value of t after
+right_dt[left_dt, roll = -Inf]
+
+# Note bracket join syntax being backwards: select left_dt's rows, from right_dt
+# This is a forward join in R's convention, but a reverse join in Python's.
+
+dt1 = dt[1:3]
+dt2 = dt[4:6]
+
+data.table::rbindlist(list(dt1, dt2), use.names = TRUE)
+# fill = TRUE to include disjoint columns and fill with NA
+
+dt_left = dt[0:3, 1:3]
+dt_right = dt[0:3, 4:6]
+cbind(dt_left, dt_right)
 
 
