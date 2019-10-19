@@ -6,6 +6,10 @@ python:
   - "3.6"
   - "3.7"
   - "3.8"
+os:
+  - linux
+  - osx
+
 install:
   - sudo apt-get update
   # We do this conditionally because it saves us some downloading if the
