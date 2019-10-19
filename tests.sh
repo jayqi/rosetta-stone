@@ -14,4 +14,4 @@ for rscript in */scripts/*.r; do \
     echo ""
 done
 
-ECHO "Tests passed."
+echo "Tests passed."
