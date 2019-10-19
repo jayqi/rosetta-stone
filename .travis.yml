@@ -25,4 +25,5 @@ install:
 
 script:
   - conda activate rosetta-stone
-  - make test
+  - make data
+  - bash tests.sh
