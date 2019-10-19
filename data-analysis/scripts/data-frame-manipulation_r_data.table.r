@@ -38,20 +38,29 @@ head(dt, 3)
 
 dt[, .(
     min_age = min(age, na.rm = TRUE), 
-    mean_fare = mean(fare)
+    mean_fare = mean(fare, na.rm = TRUE),
+    count = .N
 ), by = pclass]
 
 
 
-# Gather / melt
+# Count Pivot Table
+data.table::dcast(dt, sex ~ pclass)
 
-# Spread / cast / pivot
+# Aggegate Pivot Table
+dt_wide <- data.table::dcast(dt, sex ~ pclass, value.var = "age", fun.aggregate = median, na.rm = TRUE)
+dt_wide
+
+data.table::melt(dt_wide, id.vars = "sex", measure.vars = c("1", "2", "3"), variable.name = "pclass", value.name = "med_age")
+
+left_dt = dt[1:100, .(name, sex, age)]
+right_dt = dt[1:100, .(name, pclass, fare)]
+
+merge(
+    left_dt,
+    right_dt,
+    by = 'name',   # by.x, by.y
+    all = FALSE    # all.x, all.y
+) %>% head()
 
 
-
-dt2 <- data.table::data.table(
-    x = c(1,2,3),
-    y = c('a', 'b', 'c'),
-    z = c(TRUE, FALSE, TRUE)
-)
-dt2

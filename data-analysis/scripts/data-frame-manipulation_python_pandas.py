@@ -113,14 +113,14 @@ df.loc[lambda dfx: (dfx['survived'] == 1) & (dfx['sex'] == 'female'), :].head(3)
 
 
 # Select columns by name
-df.loc[:, ["survived", "pclass"]].head(3)
+df.loc[:, ['survived', 'pclass']].head(3)
 
 
 # In[14]:
 
 
 # Select column range by name
-df.loc[:, "survived":"name"].head(3)
+df.loc[:, 'survived':'name'].head(3)
 
 
 # ## Assign values
@@ -129,7 +129,7 @@ df.loc[:, "survived":"name"].head(3)
 
 
 # Assign a (new) column
-df.loc[:, "sparkles"] = 8
+df.loc[:, 'sparkles'] = 8
 df.head(3)
 
 
@@ -175,19 +175,55 @@ df.groupby("pclass").agg(
 # min() | Compute min of group values
 # max() | Compute max of group values
 
-# ## Pivot table
-
-# In[18]:
-
-
-pd.pivot_table(df, values="age", index="pclass", columns="sex", aggfunc="median")
-
-
 # ## Reshape
+
+# https://pandas.pydata.org/pandas-docs/stable/user_guide/reshaping.html
+
+# ### Spread / Cast / Pivot
+
+# In[35]:
+
+
+# Count pivot table
+pd.pivot_table(df, index="sex", columns="pclass", aggfunc="size")
+
+
+# In[31]:
+
+
+# Aggregate function
+df_wide = pd.pivot_table(df, values="age", index="sex", columns="pclass", aggfunc="median")
+df_wide
+
+
+# ### Gather / Melt
+
+# In[37]:
+
+
+df_wide.reset_index().melt(id_vars="sex", value_vars=[1, 2, 3], value_name="med_age")
+
 
 # ## Join
 
-# ## Creation
+# In[43]:
+
+
+left_df = df[['name', 'sex', 'age']].iloc[0:100]
+right_df = df[['name', 'pclass', 'fare']].iloc[0:100]
+
+left_df.merge(
+    right_df, 
+    on='name',    # left_on, right_on
+    how='inner'   # 'left', 'right', 'outer'
+).head()
+
+
+# ## Rolling Join / As-of Join
+
+# ## Rowbind
+
+# ## Columnbind
 
 # In[ ]:
 

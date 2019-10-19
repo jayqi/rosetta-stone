@@ -20,20 +20,20 @@ summary(df)
 df[2:4,]
 
 # Select rows by condition
-df[df[, "Survived"] == 1,] %>% head(3)
+df[df[, "survived"] == 1,] %>% head(3)
 
 # Select rows by multiple conditions
-df[df[, "Survived"] == 1 & df[, "Sex"] == "female",] %>% head(3)
+df[df[, "survived"] == 1 & df[, "sex"] == "female",] %>% head(3)
 
 # Select columns by name
-df[, c("Survived", "Pclass")] %>% head(3)
+df[, c("survived", "pclass")] %>% head(3)
 
 # Assign a (new) column
 df$sparkles <- 8
 head(df, 3)
 
 # Assign value to some rows
-df[df[, "Survived"] == 1, "sparkles"] <- 3
+df[df[, "survived"] == 1, "sparkles"] <- 3
 head(df, 3)
 
 
