@@ -1,7 +1,6 @@
 library(magrittr)
-library(dplyr)
 
-df <- read.csv("../_data/titanic.csv")
+df <- read.csv(here::here(".data", "titanic.csv"))
 head(df, 3)
 
 # Rows
@@ -50,5 +49,3 @@ df2 <- data.frame(
     , z = c(TRUE, FALSE, TRUE)
 )
 df2
-
-

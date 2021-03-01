@@ -1,0 +1,33 @@
+site_name: Rosetta Stone
+site_url: https://jayqi.github.io/rosetta-stone
+site_description: A reference how to do stuff in different languages and frameworks.
+repo_url: https://github.com/jayqi/rosetta-stone
+theme:
+  name: material
+
+nav:
+  - Home: "index.md"
+  - Data Frame Creation:
+    - Python pandas: "data-frame-creation/python-pandas.ipynb"
+    - R data.table: "data-frame-creation/r-data.table.ipynb"
+  - Data Frame Manipulation:
+    - Python pandas: "data-frame-manipulation/python-pandas.ipynb"
+    - R data.frame: "data-frame-manipulation/r-data.frame.ipynb"
+    - R data.table: "data-frame-manipulation/r-data.table.ipynb"
+    - R dplyr: "data-frame-manipulation/r-dplyr.ipynb"
+    - R tibble: "data-frame-manipulation/r-tibble.ipynb"
+
+markdown_extensions:
+  - pymdownx.highlight:
+  - pymdownx.superfences:
+  - toc:
+      permalink: true
+
+plugins:
+  - search
+  - mkdocs-jupyter
+  - exclude:
+      glob:
+        - "**/.nbautoexport"
+        - "**/script/*.py"
+        - "**/script/*.r"

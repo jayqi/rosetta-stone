@@ -3,5 +3,7 @@
     "script"
   ],
   "organize_by": "extension",
-  "clean": false
+  "clean": {
+    "exclude": []
+  }
 }

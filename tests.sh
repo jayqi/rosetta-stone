@@ -3,14 +3,14 @@
 # Failures exit immediately
 set -e
 
-for pyscript in */scripts/*.py; do
+for pyscript in */script/*.py; do
     echo "=== Testing $pyscript ==="
-    (cd $(dirname $pyscript) && cd .. && python scripts/$(basename $pyscript))
+    python $pyscript
     echo ""
 done
-for rscript in */scripts/*.r; do \
+for rscript in */script/*.r; do \
     echo "=== Testing $rscript ==="
-    (cd $(dirname $rscript) && cd .. && Rscript scripts/$(basename $rscript))
+    Rscript $rscript
     echo ""
 done
 
