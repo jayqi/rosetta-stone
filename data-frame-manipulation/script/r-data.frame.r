@@ -1,6 +1,6 @@
 library(magrittr)
 
-df <- read.csv("../_data/titanic.csv")
+df <- read.csv(here::here(".data", "titanic.csv"))
 head(df, 3)
 
 # Rows

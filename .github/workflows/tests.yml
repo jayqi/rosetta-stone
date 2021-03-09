@@ -1,0 +1,33 @@
+name: tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    # Run every Sunday
+    - cron: "0 0 * * 0"
+
+jobs:
+  build:
+    name: ubuntu-latest
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: conda-incubator/setup-miniconda@v2
+        with:
+          auto-update-conda: true
+          environment-file: environment.yml
+          activate-environment: rosetta-stone
+
+      - name: Get data
+        shell: bash -l {0}
+        run: |
+          make data
+
+      - name: Run tests
+        shell: bash -l {0}
+        run: |
+          make test

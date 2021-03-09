@@ -1,7 +1,10 @@
 library(magrittr)
-library(dplyr)
+library(tibble)
+library(readr)
 
-df <- read.csv("../_data/titanic.csv")
+print(packageVersion("tibble"))
+
+df <- readr::read_csv(here::here(".data", "titanic.csv"))
 head(df, 3)
 
 # Rows
@@ -36,8 +39,6 @@ head(df, 3)
 df[df[, "survived"] == 1, "sparkles"] <- 3
 head(df, 3)
 
-
-
 # Gather / melt
 
 # Spread / cast / pivot
@@ -50,5 +51,3 @@ df2 <- data.frame(
     , z = c(TRUE, FALSE, TRUE)
 )
 df2
-
-

@@ -1,7 +1,9 @@
 library(data.table)
 library(magrittr)
 
-dt <- data.table::fread("../_data/titanic.csv")
+packageVersion("data.table")
+
+dt <- data.table::fread(here::here(".data", "titanic.csv"))
 head(dt, 3)
 
 # Rows

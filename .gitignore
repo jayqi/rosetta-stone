@@ -1,2 +1,4 @@
 .ipynb_checkpoints
-_data/*.csv
+.docs/docs/index.md
+.docs/site/
+.data/titanic.csv
