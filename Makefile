@@ -7,7 +7,7 @@ requirements:
 .docs/docs/%:
 	ln -sf --relative $(notdir $@)/ $@
 
-symlinks: .docs/docs/data-frame-creation .docs/docs/data-frame-manipulation
+symlinks: .docs/docs/data-frame-creation .docs/docs/data-frame-manipulation .docs/docs/plotting
 
 docs:
 	cp README.md .docs/docs/index.md

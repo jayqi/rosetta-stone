@@ -2,12 +2,14 @@ name: rosetta-stone
 channels:
   - conda-forge
 dependencies:
-  - ipywidgets
+  - black
   - jupyterlab
+  - jupyterlab_code_formatter
   - nbautoexport
   - numpy
   - pandas
   - pip
+  - plotnine
   - pyprojroot==0.2.0
   - python
   - r-base
@@ -19,6 +21,8 @@ dependencies:
   - r-irkernel
   - r-magrittr
   - r-readr
+  - r-styler
   - r-tibble
+  - rpy2
   - scikit-learn
   - scipy
