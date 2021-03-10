@@ -17,6 +17,9 @@ nav:
     - R data.table: "data-frame-manipulation/r-data.table.ipynb"
     - R dplyr: "data-frame-manipulation/r-dplyr.ipynb"
     - R tibble: "data-frame-manipulation/r-tibble.ipynb"
+  - Plotting:
+    - Python plotnine: "plotting/python-plotnine.ipynb"
+    - R ggplot2: "plotting/r-ggplot2.ipynb"
 
 markdown_extensions:
   - pymdownx.highlight:
