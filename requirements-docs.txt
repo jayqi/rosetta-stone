@@ -1,4 +1,4 @@
-mkdocs
+mkdocs>=1.2
 mkdocs-jupyter
 mkdocs-material
 mkdocs-exclude
